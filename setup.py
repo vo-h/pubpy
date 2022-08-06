@@ -7,9 +7,12 @@ here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / "README.md").read_text(encoding="utf-8")
 today = date.today().strftime(r"%Y.%m.%d")
 
+requirements = (here / "requirements.txt").read_text(encoding="utf-8").split("\n")
+
 setup(
     name="pubpy",
     version=today,
     packages=find_packages(where="pubpy"),
     include_package_data=True,
+    install_requires=requirements
 )
